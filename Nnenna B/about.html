@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Learn more about my background, expertise, and journey"
+    />
+    <title>About | Personal Website</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">Nnenna B. Amuji</a>
+
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="research.html" class="nav-link">Research</a></li>
+          <li><a href="media.html" class="nav-link">Media</a></li>
+          <li><a href="awards.html" class="nav-link">Awards</a></li>
+          <li><a href="talks.html" class="nav-link">Talks</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" style="min-height: 60vh">
+      <div class="hero-content">
+        <h1 class="hero-title">About Me</h1>
+        <p class="hero-subtitle">
+          Energy Economist • Financial Analyst • Researcher • Diaspora Leader
+        </p>
+      </div>
+    </section>
+
+    <!-- BIO SECTION -->
+    <section class="section">
+      <div class="container">
+        <div
+          class="grid grid-2"
+          style="align-items: center; gap: var(--spacing-2xl)"
+        >
+          <!-- Profile Image -->
+          <div class="animate-on-scroll">
+            <img
+              src="./assets/IMG_3860.jpeg"
+              alt="Nnenna B. Amuji - Profile Photo"
+              style="
+                width: 100%;
+                aspect-ratio: 0.9;
+                object-fit: cover;
+                border-radius: var(--radius-xl);
+                box-shadow: var(--shadow-xl);
+                border: 3px solid var(--color-primary);
+              "
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <!-- Fallback if image doesn't exist -->
+            <div
+              style="
+                display: none;
+                width: 100%;
+                aspect-ratio: 1;
+                background: var(--gradient-primary);
+                border-radius: var(--radius-xl);
+                align-items: center;
+                justify-content: center;
+                font-size: var(--text-6xl);
+                box-shadow: var(--shadow-xl);
+              "
+            >
+              👤
+            </div>
+          </div>
+
+          <!-- Bio Content -->
+          <div class="animate-on-scroll">
+            <h2 class="section-title" style="text-align: left">
+              Hello, I'm Daniel Okwudili Egbo
+            </h2>
+            <p
+              style="
+                font-size: var(--text-lg);
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              Bilingual (English, Mandarin, Spanish) Financial Economist and
+              Global Energy Policy Strategist distinguished by a dual-track
+              career in high-impact corporate finance and influential global
+              policy research. Board Member of the Global Model United Nations
+              (GlobalMUN) and recognized authority in Energy Economics,
+              Financial Risk Analysis, and Green Technology Policy. Passionate
+              about changing the world through education …. Bla bla bla
+            </p>
+          
+            <p
+              style="
+                font-size: var(--text-lg);
+                margin-bottom: var(--spacing-xl);
+              "
+            ></p>
+            <div class="btn-group" style="justify-content: flex-start">
+              <a href="research.html" class="btn btn-primary"
+                >View My Research</a
+              >
+              <a href="talks.html" class="btn btn-secondary">See My Talks</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERTISE SECTION -->
+    <section class="section" style="background: var(--color-bg-medium)">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Areas of Expertise</h2>
+          <p class="section-subtitle">
+            Core competencies and professional focus
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card animate-on-scroll">
+            <div class="card-header">
+              <h3 class="card-title">💵 Financial Strategy</h3>
+            </div>
+            <div class="card-body">
+              <p>
+                Expertise in financial modeling, valuation, and capital
+                allocation. Driving long-term value creation through data-driven
+                financial decision-making.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="badge badge-primary">Valuation</span>
+              <span class="badge badge-accent">Capital Planning</span>
+            </div>
+          </div>
+
+          <div class="card animate-on-scroll">
+            <div class="card-header">
+              <h3 class="card-title">⚡ Energy Systems</h3>
+            </div>
+            <div class="card-body">
+              <p>
+                Deep understanding of renewable energy markets, grid
+                modernization, and the economic implications of the energy
+                transition.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="badge badge-primary">Renewables</span>
+              <span class="badge badge-pink">Sustainability</span>
+            </div>
+          </div>
+
+          <div class="card animate-on-scroll">
+            <div class="card-header">
+              <h3 class="card-title">⚙️ Operational Optimization</h3>
+            </div>
+            <div class="card-body">
+              <p>
+                Streamlining business operations to improve efficiency and
+                reduce costs. Implementing strategic initiatives to enhance
+                organizational performance.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="badge badge-accent">Efficiency</span>
+              <span class="badge badge-pink">Strategy</span>
+            </div>
+          </div>
+
+          <div class="card animate-on-scroll">
+            <div class="card-header">
+              <h3 class="card-title">📊 Strategic Planning</h3>
+            </div>
+            <div class="card-body">
+              <p>
+                Developing and executing high-level business strategies.
+                Aligning organizational goals with market opportunities and
+                financial targets.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="badge badge-primary">growth</span>
+              <span class="badge badge-accent">Analysis</span>
+            </div>
+          </div>
+
+          <div class="card animate-on-scroll">
+            <div class="card-header">
+              <h3 class="card-title">⚖️ Risk Management</h3>
+            </div>
+            <div class="card-body">
+              <p>
+                Identifying and mitigating financial and operational risks.
+                Ensuring compliance and stability in volatile markets.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="badge badge-primary">Compliance</span>
+              <span class="badge badge-pink">Analysis</span>
+            </div>
+          </div>
+
+          <div class="card animate-on-scroll">
+            <div class="card-header">
+              <h3 class="card-title">🤝 Stakeholder Management</h3>
+            </div>
+            <div class="card-body">
+              <p>
+                Building strong relationships with investors, partners, and
+                teams. Communicating complex financial data to diverse
+                audiences.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="badge badge-accent">Communication</span>
+              <span class="badge badge-pink">Leadership</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY/TIMELINE SECTION -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">My Journey</h2>
+          <p class="section-subtitle">
+            Key milestones in my professional career
+          </p>
+        </div>
+
+        <div style="max-width: 800px; margin: 0 auto">
+          <!-- Timeline Item 1 -->
+          <div
+            class="card animate-on-scroll"
+            style="
+              margin-bottom: var(--spacing-lg);
+              border-left: 4px solid var(--color-primary);
+            "
+          >
+            <div class="card-header">
+              <h3 class="card-title">Present - Senior Researcher</h3>
+              <p class="card-subtitle">Leading Research Institution</p>
+            </div>
+            <div class="card-body">
+              <p>
+                Currently leading groundbreaking research projects in AI and
+                sustainability, managing a team of talented researchers, and
+                collaborating with international partners.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div
+            class="card animate-on-scroll"
+            style="
+              margin-bottom: var(--spacing-lg);
+              border-left: 4px solid var(--color-secondary);
+            "
+          >
+            <div class="card-header">
+              <h3 class="card-title">2020 - Associate Professor</h3>
+              <p class="card-subtitle">University of Excellence</p>
+            </div>
+            <div class="card-body">
+              <p>
+                Promoted to Associate Professor, developed innovative
+                curriculum, and established collaborative research programs with
+                industry partners.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <div
+            class="card animate-on-scroll"
+            style="
+              margin-bottom: var(--spacing-lg);
+              border-left: 4px solid var(--color-accent-cyan);
+            "
+          >
+            <div class="card-header">
+              <h3 class="card-title">2015 - Ph.D. in Computer Science</h3>
+              <p class="card-subtitle">Top-Tier University</p>
+            </div>
+            <div class="card-body">
+              <p>
+                Completed doctoral research on advanced machine learning
+                techniques, published multiple papers in top-tier conferences
+                and journals.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 4 -->
+          <div
+            class="card animate-on-scroll"
+            style="border-left: 4px solid var(--color-accent-pink)"
+          >
+            <div class="card-header">
+              <h3 class="card-title">2010 - Bachelor's Degree</h3>
+              <p class="card-subtitle">Prestigious University</p>
+            </div>
+            <div class="card-body">
+              <p>
+                Graduated with honors in Computer Science, developed passion for
+                research and innovation, received multiple academic awards.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP SECTION -->
+    <section class="section" style="background: var(--color-bg-medium)">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Leadership & Impact</h2>
+          <p class="section-subtitle">
+            Driving change through strategic vision and community service
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <!-- Leadership Item 1 -->
+          <div class="card animate-on-scroll">
+            <div class="card-header">
+              <div
+                style="
+                  font-size: var(--text-4xl);
+                  margin-bottom: var(--spacing-sm);
+                "
+              >
+                🚀
+              </div>
+              <h3 class="card-title">Strategic Vision</h3>
+            </div>
+            <div class="card-body">
+              <p>
+                Leading cross-functional teams to deliver high-impact projects.
+                Expertise in aligning technical initiatives with organizational
+                goals and driving digital transformation.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="badge badge-primary">Strategy</span>
+              <span class="badge badge-accent">Management</span>
+            </div>
+          </div>
+
+          <!-- Leadership Item 2 -->
+          <div class="card animate-on-scroll">
+            <div class="card-header">
+              <div
+                style="
+                  font-size: var(--text-4xl);
+                  margin-bottom: var(--spacing-sm);
+                "
+              >
+                🤝
+              </div>
+              <h3 class="card-title">Community Building</h3>
+            </div>
+            <div class="card-body">
+              <p>
+                Active organizer of local tech meetups and conferences.
+                dedicated to fostering inclusive communities where knowledge
+                sharing and collaboration thrive.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="badge badge-pink">Community</span>
+              <span class="badge badge-primary">Outreach</span>
+            </div>
+          </div>
+
+          <!-- Leadership Item 3 -->
+          <div class="card animate-on-scroll">
+            <div class="card-header">
+              <div
+                style="
+                  font-size: var(--text-4xl);
+                  margin-bottom: var(--spacing-sm);
+                "
+              >
+                🌱
+              </div>
+              <h3 class="card-title">Mentorship</h3>
+            </div>
+            <div class="card-body">
+              <p>
+                Committed to guiding the next generation of technologists.
+                Regularly mentoring students and junior developers to help them
+                achieve their career aspirations.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="badge badge-accent">Mentoring</span>
+              <span class="badge badge-pink">Education</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="section" style="background: var(--color-bg-medium)">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Professional Skills</h2>
+          <p class="section-subtitle">Competencies and Tools</p>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="animate-on-scroll">
+            <h3 style="margin-bottom: var(--spacing-md)">Financial Analysis</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-sm)">
+              <span class="badge badge-primary">Financial Modeling</span>
+              <span class="badge badge-primary">Valuation</span>
+              <span class="badge badge-primary">ROI Analysis</span>
+              <span class="badge badge-accent">Budgeting</span>
+              <span class="badge badge-accent">Forecasting</span>
+              <span class="badge badge-pink">Risk Assessment</span>
+              <span class="badge badge-primary">Capital Markets</span>
+              <span class="badge badge-accent">M&A</span>
+            </div>
+          </div>
+
+          <div class="animate-on-scroll">
+            <h3 style="margin-bottom: var(--spacing-md)">Energy Sector</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-sm)">
+              <span class="badge badge-primary">Renewables</span>
+              <span class="badge badge-accent">Grid Economics</span>
+              <span class="badge badge-pink">Policy Analysis</span>
+              <span class="badge badge-primary">Sustainability Reporting</span>
+              <span class="badge badge-accent">Carbon Markets</span>
+              <span class="badge badge-pink">Energy Efficiency</span>
+            </div>
+          </div>
+
+          <div class="animate-on-scroll">
+            <h3 style="margin-bottom: var(--spacing-md)">
+              Strategy & Operations
+            </h3>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-sm)">
+              <span class="badge badge-primary">Strategic Planning</span>
+              <span class="badge badge-accent">Process Improvement</span>
+              <span class="badge badge-pink">Project Management</span>
+              <span class="badge badge-primary">Supply Chain</span>
+              <span class="badge badge-accent">Change Management</span>
+              <span class="badge badge-pink">KPI Tracking</span>
+            </div>
+          </div>
+
+          <div class="animate-on-scroll">
+            <h3 style="margin-bottom: var(--spacing-md)">
+              Tools & Technologies
+            </h3>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-sm)">
+              <span class="badge badge-primary">Excel (Advanced)</span>
+              <span class="badge badge-accent">SAP</span>
+              <span class="badge badge-pink">Oracle ERP</span>
+              <span class="badge badge-primary">Tableau</span>
+              <span class="badge badge-accent">Power BI</span>
+              <span class="badge badge-pink">Bloomberg Terminal</span>
+              <span class="badge badge-primary">Salesforce</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">
+            I'd love to hear from you! Whether you have a question,
+            collaboration opportunity, or just want to connect.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-2"
+          style="gap: var(--spacing-2xl); max-width: 1000px; margin: 0 auto"
+        >
+          <!-- Contact Information -->
+          <div class="animate-on-scroll">
+            <h3 style="margin-bottom: var(--spacing-lg)">
+              Contact Information
+            </h3>
+
+            <!-- All Contact Info in One Card -->
+            <div class="card">
+              <!-- Email -->
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: var(--spacing-md);
+                  margin-bottom: var(--spacing-md);
+                  padding-bottom: var(--spacing-md);
+                  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                "
+              >
+                <div
+                  style="
+                    width: 50px;
+                    height: 50px;
+                    background: var(--gradient-primary);
+                    border-radius: var(--radius-lg);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: var(--text-2xl);
+                    flex-shrink: 0;
+                  "
+                >
+                  📧
+                </div>
+                <div>
+                  <h4
+                    style="
+                      margin-bottom: var(--spacing-xs);
+                      font-size: var(--text-base);
+                    "
+                  >
+                    Email
+                  </h4>
+                  <a
+                    href="mailto:daniel.egbo@email.com"
+                    style="color: var(--color-accent-cyan)"
+                    >daniel.egbo@email.com</a
+                  >
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: var(--spacing-md);
+                  margin-bottom: var(--spacing-md);
+                  padding-bottom: var(--spacing-md);
+                  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                "
+              >
+                <div
+                  style="
+                    width: 50px;
+                    height: 50px;
+                    background: var(--gradient-accent);
+                    border-radius: var(--radius-lg);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: var(--text-2xl);
+                    flex-shrink: 0;
+                  "
+                >
+                  📱
+                </div>
+                <div>
+                  <h4
+                    style="
+                      margin-bottom: var(--spacing-xs);
+                      font-size: var(--text-base);
+                    "
+                  >
+                    Phone
+                  </h4>
+                  <a
+                    href="tel:+1234567890"
+                    style="color: var(--color-accent-cyan)"
+                    >+1 (234) 567-890</a
+                  >
+                </div>
+              </div>
+
+              <!-- Location -->
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: var(--spacing-md);
+                  margin-bottom: var(--spacing-md);
+                  padding-bottom: var(--spacing-md);
+                  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                "
+              >
+                <div
+                  style="
+                    width: 50px;
+                    height: 50px;
+                    background: var(--gradient-warm);
+                    border-radius: var(--radius-lg);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: var(--text-2xl);
+                    flex-shrink: 0;
+                  "
+                >
+                  📍
+                </div>
+                <div>
+                  <h4
+                    style="
+                      margin-bottom: var(--spacing-xs);
+                      font-size: var(--text-base);
+                    "
+                  >
+                    Location
+                  </h4>
+                  <p style="margin: 0; color: var(--color-text-secondary)">
+                    City, Country
+                  </p>
+                </div>
+              </div>
+
+              <!-- Social Media -->
+              <div>
+                <h4 style="margin-bottom: var(--spacing-md)">
+                  Connect on Social Media
+                </h4>
+                <div
+                  style="display: flex; gap: var(--spacing-sm); flex-wrap: wrap"
+                >
+                  <a
+                    href="https://linkedin.com/in/yourprofile"
+                    target="_blank"
+                    class="btn btn-primary"
+                    style="
+                      padding: var(--spacing-xs) var(--spacing-md);
+                      font-size: var(--text-sm);
+                    "
+                    >LinkedIn</a
+                  >
+                  <a
+                    href="https://twitter.com/yourhandle"
+                    target="_blank"
+                    class="btn btn-primary"
+                    style="
+                      padding: var(--spacing-xs) var(--spacing-md);
+                      font-size: var(--text-sm);
+                    "
+                    >Twitter</a
+                  >
+                  <a
+                    href="https://github.com/yourusername"
+                    target="_blank"
+                    class="btn btn-primary"
+                    style="
+                      padding: var(--spacing-xs) var(--spacing-md);
+                      font-size: var(--text-sm);
+                    "
+                    >GitHub</a
+                  >
+                  <a
+                    href="https://scholar.google.com/citations?user=yourID"
+                    target="_blank"
+                    class="btn btn-primary"
+                    style="
+                      padding: var(--spacing-xs) var(--spacing-md);
+                      font-size: var(--text-sm);
+                    "
+                    >Google Scholar</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="animate-on-scroll">
+            <h3 style="margin-bottom: var(--spacing-lg)">Send a Message</h3>
+            <form class="card" id="contact-form">
+              <div style="margin-bottom: var(--spacing-md)">
+                <label
+                  for="name"
+                  style="
+                    display: block;
+                    margin-bottom: var(--spacing-xs);
+                    font-weight: 600;
+                  "
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  style="
+                    width: 100%;
+                    padding: var(--spacing-sm);
+                    background: var(--color-bg-light);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border-radius: var(--radius-md);
+                    color: var(--color-text-primary);
+                    font-family: var(--font-body);
+                    font-size: var(--text-base);
+                  "
+                />
+              </div>
+
+              <div style="margin-bottom: var(--spacing-md)">
+                <label
+                  for="email"
+                  style="
+                    display: block;
+                    margin-bottom: var(--spacing-xs);
+                    font-weight: 600;
+                  "
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  style="
+                    width: 100%;
+                    padding: var(--spacing-sm);
+                    background: var(--color-bg-light);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border-radius: var(--radius-md);
+                    color: var(--color-text-primary);
+                    font-family: var(--font-body);
+                    font-size: var(--text-base);
+                  "
+                />
+              </div>
+
+              <div style="margin-bottom: var(--spacing-md)">
+                <label
+                  for="subject"
+                  style="
+                    display: block;
+                    margin-bottom: var(--spacing-xs);
+                    font-weight: 600;
+                  "
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  style="
+                    width: 100%;
+                    padding: var(--spacing-sm);
+                    background: var(--color-bg-light);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border-radius: var(--radius-md);
+                    color: var(--color-text-primary);
+                    font-family: var(--font-body);
+                    font-size: var(--text-base);
+                  "
+                />
+              </div>
+
+              <div style="margin-bottom: var(--spacing-lg)">
+                <label
+                  for="message"
+                  style="
+                    display: block;
+                    margin-bottom: var(--spacing-xs);
+                    font-weight: 600;
+                  "
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  required
+                  style="
+                    width: 100%;
+                    padding: var(--spacing-sm);
+                    background: var(--color-bg-light);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border-radius: var(--radius-md);
+                    color: var(--color-text-primary);
+                    font-family: var(--font-body);
+                    font-size: var(--text-base);
+                    resize: vertical;
+                  "
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p class="footer-text">
+            © Nnenna B. Amuji 2025. All rights reserved.
+          </p>
+          <p class="footer-text">
+            Built with passion and modern web technologies
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Presentations, keynotes, and speaking engagements at conferences and events"
+    />
+    <title>Talks | Personal Website</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Talks Page Specific Styles */
+      .talk-card {
+        background: var(--color-bg-card);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-xl);
+        padding: var(--spacing-lg);
+        transition: all var(--transition-base);
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .talk-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--gradient-primary);
+        transform: scaleY(0);
+        transition: transform var(--transition-base);
+      }
+
+      .talk-card:hover::before {
+        transform: scaleY(1);
+      }
+
+      .talk-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(99, 102, 241, 0.5);
+        box-shadow: var(--shadow-xl), 0 0 30px rgba(99, 102, 241, 0.2);
+      }
+
+      .talk-date {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        padding: var(--spacing-xs) var(--spacing-sm);
+        background: var(--gradient-primary);
+        border-radius: var(--radius-full);
+        font-size: var(--text-sm);
+        font-weight: 600;
+        color: white;
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .talk-type {
+        position: absolute;
+        top: var(--spacing-lg);
+        right: var(--spacing-lg);
+        padding: var(--spacing-xs) var(--spacing-sm);
+        background: rgba(6, 182, 212, 0.2);
+        border: 1px solid var(--color-accent-cyan);
+        color: var(--color-accent-cyan);
+        border-radius: var(--radius-md);
+        font-size: var(--text-xs);
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      .talk-location {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        color: var(--color-text-muted);
+        font-size: var(--text-sm);
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .tabs {
+        display: flex;
+        gap: var(--spacing-sm);
+        justify-content: center;
+        margin-bottom: var(--spacing-2xl);
+        flex-wrap: wrap;
+      }
+
+      .tab-btn {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        background: transparent;
+        border: 2px solid var(--color-primary);
+        color: var(--color-text-primary);
+        border-radius: var(--radius-lg);
+        cursor: pointer;
+        font-weight: 600;
+        font-size: var(--text-base);
+        transition: all var(--transition-fast);
+        font-family: var(--font-body);
+      }
+
+      .tab-btn:hover,
+      .tab-btn.active {
+        background: var(--gradient-primary);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+        animation: fadeIn 0.5s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">Nnenna B. Amuji</a>
+
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="research.html" class="nav-link">Research</a></li>
+          <li><a href="media.html" class="nav-link">Media</a></li>
+          <li><a href="awards.html" class="nav-link">Awards</a></li>
+          <li><a href="talks.html" class="nav-link">Talks</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" style="min-height: 60vh">
+      <div class="hero-content">
+        <h1 class="hero-title">Talks & Presentations</h1>
+        <p class="hero-subtitle">
+          Insights on energy strategy, financial leadership, and sustainable
+          growth
+        </p>
+      </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-4">
+          <div class="text-center animate-on-scroll">
+            <div
+              style="
+                font-size: var(--text-5xl);
+                margin-bottom: var(--spacing-sm);
+              "
+            >
+              🎤
+            </div>
+            <h3
+              class="text-gradient"
+              style="
+                font-size: var(--text-4xl);
+                margin-bottom: var(--spacing-xs);
+              "
+              data-counter="50"
+            >
+              0
+            </h3>
+            <p class="text-muted">Industry Talks</p>
+          </div>
+          <div class="text-center animate-on-scroll">
+            <div
+              style="
+                font-size: var(--text-5xl);
+                margin-bottom: var(--spacing-sm);
+              "
+            >
+              🌍
+            </div>
+            <h3
+              class="text-gradient"
+              style="
+                font-size: var(--text-4xl);
+                margin-bottom: var(--spacing-xs);
+              "
+              data-counter="12"
+            >
+              0
+            </h3>
+            <p class="text-muted">Countries</p>
+          </div>
+          <div class="text-center animate-on-scroll">
+            <div
+              style="
+                font-size: var(--text-5xl);
+                margin-bottom: var(--spacing-sm);
+              "
+            >
+              🏛️
+            </div>
+            <h3
+              class="text-gradient"
+              style="
+                font-size: var(--text-4xl);
+                margin-bottom: var(--spacing-xs);
+              "
+              data-counter="20"
+            >
+              0
+            </h3>
+            <p class="text-muted">Board Presentations</p>
+          </div>
+          <div class="text-center animate-on-scroll">
+            <div
+              style="
+                font-size: var(--text-5xl);
+                margin-bottom: var(--spacing-sm);
+              "
+            >
+              👥
+            </div>
+            <h3
+              class="text-gradient"
+              style="
+                font-size: var(--text-4xl);
+                margin-bottom: var(--spacing-xs);
+              "
+              data-counter="5000"
+            >
+              0
+            </h3>
+            <p class="text-muted">Professionals Reached</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TALKS SECTION WITH TABS -->
+    <section class="section" style="background: var(--color-bg-medium)">
+      <div class="container">
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="upcoming">
+            Upcoming Talks
+          </button>
+          <button class="tab-btn" data-tab="keynotes">Keynotes</button>
+          <button class="tab-btn" data-tab="past">Past Talks</button>
+          <button class="tab-btn" data-tab="workshops">Workshops</button>
+        </div>
+
+        <!-- Upcoming Talks Tab -->
+        <div class="tab-content active" id="upcoming">
+          <div class="section-header">
+            <h2 class="section-title">📅 Upcoming Talks</h2>
+            <p class="section-subtitle">
+              Future speaking engagements and presentations
+            </p>
+          </div>
+
+          <div class="grid grid-2">
+            <!-- Upcoming Talk 1 -->
+            <div class="talk-card animate-on-scroll">
+              <span class="talk-type">Keynote</span>
+              <span class="talk-date">📅 March 15, 2025</span>
+              <h3 class="card-title">The Future of Energy Finance</h3>
+              <div class="talk-location">
+                📍 Houston, TX • Global Energy Summit 2025
+              </div>
+              <p>
+                Keynote presentation on emerging trends in financing renewable
+                energy projects and the evolution of global energy markets.
+              </p>
+              <div style="margin-top: var(--spacing-md)">
+                <span class="badge badge-primary">Energy</span>
+                <span class="badge badge-accent">Finance</span>
+                <span class="badge badge-pink">1 hour</span>
+              </div>
+            </div>
+
+            <!-- Upcoming Talk 2 -->
+            <div class="talk-card animate-on-scroll">
+              <span class="talk-type">Panel</span>
+              <span class="talk-date">📅 April 22, 2025</span>
+              <h3 class="card-title">Navigating Regulatory Changes</h3>
+              <div class="talk-location">
+                📍 Washington, D.C. • Policy Outlook Forum
+              </div>
+              <p>
+                Panel discussion on the impact of new environmental regulations
+                on corporate strategy and operational compliance.
+              </p>
+              <div style="margin-top: var(--spacing-md)">
+                <span class="badge badge-primary">Policy</span>
+                <span class="badge badge-accent">Strategy</span>
+                <span class="badge badge-pink">90 min</span>
+              </div>
+            </div>
+
+            <!-- Upcoming Talk 3 -->
+            <div class="talk-card animate-on-scroll">
+              <span class="talk-type">Invited Talk</span>
+              <span class="talk-date">📅 May 10, 2025</span>
+              <h3 class="card-title">Sustainable Business Growth</h3>
+              <div class="talk-location">
+                📍 London, UK • Business Sustainability Conf
+              </div>
+              <p>
+                Invited presentation on integrating sustainability metrics into
+                core business KPIs for long-term value creation.
+              </p>
+              <div style="margin-top: var(--spacing-md)">
+                <span class="badge badge-primary">Sustainability</span>
+                <span class="badge badge-accent">Management</span>
+                <span class="badge badge-pink">45 min</span>
+              </div>
+            </div>
+
+            <!-- Upcoming Talk 4 -->
+            <div class="talk-card animate-on-scroll">
+              <span class="talk-type">Workshop</span>
+              <span class="talk-date">📅 June 5, 2025</span>
+              <h3 class="card-title">Financial Modeling for Energy</h3>
+              <div class="talk-location">📍 New York, NY • FinTech Week</div>
+              <p>
+                Interactive workshop teaching advanced financial modeling
+                techniques specifically for evaluating complex energy assets.
+              </p>
+              <div style="margin-top: var(--spacing-md)">
+                <span class="badge badge-primary">Modeling</span>
+                <span class="badge badge-accent">Workshop</span>
+                <span class="badge badge-pink">3 hours</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Keynotes Tab -->
+        <div class="tab-content" id="keynotes">
+          <div class="section-header">
+            <h2 class="section-title">🎯 Keynote Presentations</h2>
+            <p class="section-subtitle">
+              Featured keynote addresses at major conferences
+            </p>
+          </div>
+
+          <div class="grid grid-2">
+            <!-- Keynote 1 -->
+            <div class="talk-card animate-on-scroll">
+              <span class="talk-type">Keynote</span>
+              <span class="talk-date">📅 December 2024</span>
+              <h3 class="card-title">Advancing AI for Social Good</h3>
+              <div class="talk-location">
+                📍 Vancouver, Canada • NeurIPS 2024
+              </div>
+              <p>
+                Keynote address on leveraging artificial intelligence to address
+                global challenges and create positive social impact.
+              </p>
+              <div style="margin-top: var(--spacing-md)">
+                <span class="badge badge-primary">AI for Good</span>
+                <span class="badge badge-accent">NeurIPS</span>
+                <a
+                  href="#"
+                  class="btn btn-primary"
+                  style="
+                    padding: var(--spacing-xs) var(--spacing-md);
+                    font-size: var(--text-sm);
+                    margin-top: var(--spacing-sm);
+                  "
+                  >View Slides</a
+                >
+              </div>
+            </div>
+
+            <!-- Keynote 2 -->
+            <div class="talk-card animate-on-scroll">
+              <span class="talk-type">Keynote</span>
+              <span class="talk-date">📅 September 2024</span>
+              <h3 class="card-title">The Green Revolution in Computing</h3>
+              <div class="talk-location">
+                📍 Copenhagen, Denmark • Sustainable Tech Summit
+              </div>
+              <p>
+                Opening keynote on sustainable computing practices and the role
+                of technology in combating climate change.
+              </p>
+              <div style="margin-top: var(--spacing-md)">
+                <span class="badge badge-primary">Sustainability</span>
+                <span class="badge badge-pink">Climate</span>
+                <a
+                  href="#"
+                  class="btn btn-primary"
+                  style="
+                    padding: var(--spacing-xs) var(--spacing-md);
+                    font-size: var(--text-sm);
+                    margin-top: var(--spacing-sm);
+                  "
+                  >View Recording</a
+                >
+              </div>
+            </div>
+
+            <!-- Keynote 3 -->
+            <div class="talk-card animate-on-scroll">
+              <span class="talk-type">Keynote</span>
+              <span class="talk-date">📅 June 2024</span>
+              <h3 class="card-title">Privacy-Preserving Machine Learning</h3>
+              <div class="talk-location">📍 Vienna, Austria • ICML 2024</div>
+              <p>
+                Keynote presentation on the latest advances in
+                privacy-preserving techniques for machine learning applications.
+              </p>
+              <div style="margin-top: var(--spacing-md)">
+                <span class="badge badge-primary">Privacy</span>
+                <span class="badge badge-accent">ICML</span>
+                <a
+                  href="#"
+                  class="btn btn-primary"
+                  style="
+                    padding: var(--spacing-xs) var(--spacing-md);
+                    font-size: var(--text-sm);
+                    margin-top: var(--spacing-sm);
+                  "
+                  >View Slides</a
+                >
+              </div>
+            </div>
+
+            <!-- Keynote 4 -->
+            <div class="talk-card animate-on-scroll">
+              <span class="talk-type">Keynote</span>
+              <span class="talk-date">📅 March 2024</span>
+              <h3 class="card-title">Democratizing AI Education</h3>
+              <div class="talk-location">📍 Austin, TX • EdTech Conference</div>
+              <p>
+                Keynote on making AI education accessible to all and bridging
+                the gap in technology education worldwide.
+              </p>
+              <div style="margin-top: var(--spacing-md)">
+                <span class="badge badge-accent">Education</span>
+                <span class="badge badge-pink">Access</span>
+                <a
+                  href="#"
+                  class="btn btn-primary"
+                  style="
+                    padding: var(--spacing-xs) var(--spacing-md);
+                    font-size: var(--text-sm);
+                    margin-top: var(--spacing-sm);
+                  "
+                  >View Recording</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Past Talks Tab -->
+        <div class="tab-content" id="past">
+          <div class="section-header">
+            <h2 class="section-title">📚 Past Talks</h2>
+            <p class="section-subtitle">
+              Previous presentations and speaking engagements
+            </p>
+          </div>
+
+          <div style="max-width: 900px; margin: 0 auto">
+            <!-- Past Talk 1 -->
+            <div
+              class="card animate-on-scroll"
+              style="margin-bottom: var(--spacing-lg)"
+            >
+              <div class="card-body">
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: start;
+                    flex-wrap: wrap;
+                    gap: var(--spacing-sm);
+                  "
+                >
+                  <div style="flex: 1">
+                    <h3 class="card-title">
+                      Deep Learning for Climate Modeling
+                    </h3>
+                    <p class="card-subtitle">
+                      Climate AI Workshop • November 2024 • London, UK
+                    </p>
+                    <p>
+                      Presented research on applying deep learning to improve
+                      climate change predictions and simulations.
+                    </p>
+                  </div>
+                  <span class="badge badge-primary">Invited Talk</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Past Talk 2 -->
+            <div
+              class="card animate-on-scroll"
+              style="margin-bottom: var(--spacing-lg)"
+            >
+              <div class="card-body">
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: start;
+                    flex-wrap: wrap;
+                    gap: var(--spacing-sm);
+                  "
+                >
+                  <div style="flex: 1">
+                    <h3 class="card-title">Explainable AI in Healthcare</h3>
+                    <p class="card-subtitle">
+                      Medical AI Symposium • October 2024 • Boston, MA
+                    </p>
+                    <p>
+                      Discussed the importance of interpretability in medical AI
+                      systems and presented case studies.
+                    </p>
+                  </div>
+                  <span class="badge badge-accent">Panel</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Past Talk 3 -->
+            <div
+              class="card animate-on-scroll"
+              style="margin-bottom: var(--spacing-lg)"
+            >
+              <div class="card-body">
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: start;
+                    flex-wrap: wrap;
+                    gap: var(--spacing-sm);
+                  "
+                >
+                  <div style="flex: 1">
+                    <h3 class="card-title">Building Responsible AI Systems</h3>
+                    <p class="card-subtitle">
+                      Tech Leaders Summit • August 2024 • Seattle, WA
+                    </p>
+                    <p>
+                      Shared best practices for developing ethical and
+                      responsible AI systems in industry settings.
+                    </p>
+                  </div>
+                  <span class="badge badge-pink">Talk</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Past Talk 4 -->
+            <div
+              class="card animate-on-scroll"
+              style="margin-bottom: var(--spacing-lg)"
+            >
+              <div class="card-body">
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: start;
+                    flex-wrap: wrap;
+                    gap: var(--spacing-sm);
+                  "
+                >
+                  <div style="flex: 1">
+                    <h3 class="card-title">The Future of Work in the AI Era</h3>
+                    <p class="card-subtitle">
+                      TEDx University • May 2024 • Cambridge, MA
+                    </p>
+                    <p>
+                      TEDx talk exploring how AI will transform the workplace
+                      and what skills will be essential.
+                    </p>
+                  </div>
+                  <span class="badge badge-primary">TEDx</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Past Talk 5 -->
+            <div
+              class="card animate-on-scroll"
+              style="margin-bottom: var(--spacing-lg)"
+            >
+              <div class="card-body">
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: start;
+                    flex-wrap: wrap;
+                    gap: var(--spacing-sm);
+                  "
+                >
+                  <div style="flex: 1">
+                    <h3 class="card-title">Federated Learning at Scale</h3>
+                    <p class="card-subtitle">
+                      ICLR 2024 • February 2024 • Virtual
+                    </p>
+                    <p>
+                      Presented research on scalable federated learning
+                      approaches for privacy-preserving distributed training.
+                    </p>
+                  </div>
+                  <span class="badge badge-accent">Conference</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workshops Tab -->
+        <div class="tab-content" id="workshops">
+          <div class="section-header">
+            <h2 class="section-title">🛠️ Workshops & Tutorials</h2>
+            <p class="section-subtitle">
+              Hands-on training sessions and educational workshops
+            </p>
+          </div>
+
+          <div class="grid grid-2">
+            <!-- Workshop 1 -->
+            <div class="talk-card animate-on-scroll">
+              <span class="talk-type">Workshop</span>
+              <span class="talk-date">📅 November 2024</span>
+              <h3 class="card-title">Introduction to PyTorch</h3>
+              <div class="talk-location">
+                📍 University Campus • Student Workshop
+              </div>
+              <p>
+                Full-day workshop teaching fundamentals of PyTorch for deep
+                learning, including hands-on coding exercises.
+              </p>
+              <div style="margin-top: var(--spacing-md)">
+                <span class="badge badge-primary">PyTorch</span>
+                <span class="badge badge-accent">Beginner</span>
+                <span class="badge badge-pink">6 hours</span>
+              </div>
+            </div>
+
+            <!-- Workshop 2 -->
+            <div class="talk-card animate-on-scroll">
+              <span class="talk-type">Tutorial</span>
+              <span class="talk-date">📅 September 2024</span>
+              <h3 class="card-title">Advanced NLP Techniques</h3>
+              <div class="talk-location">📍 ACL 2024 • Bangkok, Thailand</div>
+              <p>
+                Tutorial on state-of-the-art natural language processing
+                methods, including transformers and large language models.
+              </p>
+              <div style="margin-top: var(--spacing-md)">
+                <span class="badge badge-primary">NLP</span>
+                <span class="badge badge-accent">Advanced</span>
+                <span class="badge badge-pink">4 hours</span>
+              </div>
+            </div>
+
+            <!-- Workshop 3 -->
+            <div class="talk-card animate-on-scroll">
+              <span class="talk-type">Workshop</span>
+              <span class="talk-date">📅 July 2024</span>
+              <h3 class="card-title">Responsible AI Development</h3>
+              <div class="talk-location">
+                📍 Industry Training • Tech Company
+              </div>
+              <p>
+                Corporate workshop on implementing ethical AI practices, bias
+                detection, and fairness in machine learning systems.
+              </p>
+              <div style="margin-top: var(--spacing-md)">
+                <span class="badge badge-primary">Ethics</span>
+                <span class="badge badge-accent">Industry</span>
+                <span class="badge badge-pink">Half-day</span>
+              </div>
+            </div>
+
+            <!-- Workshop 4 -->
+            <div class="talk-card animate-on-scroll">
+              <span class="talk-type">Tutorial</span>
+              <span class="talk-date">📅 April 2024</span>
+              <h3 class="card-title">Data Visualization Best Practices</h3>
+              <div class="talk-location">📍 Data Science Bootcamp • Online</div>
+              <p>
+                Interactive tutorial on creating effective data visualizations
+                using modern tools and following design principles.
+              </p>
+              <div style="margin-top: var(--spacing-md)">
+                <span class="badge badge-accent">Visualization</span>
+                <span class="badge badge-pink">Intermediate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPEAKING TOPICS SECTION -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Speaking Topics</h2>
+          <p class="section-subtitle">
+            Areas of expertise available for speaking engagements
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card animate-on-scroll">
+            <h3 class="card-title">🤖 Artificial Intelligence</h3>
+            <ul style="list-style: none; padding: 0">
+              <li style="padding: var(--spacing-xs) 0">
+                ✓ Machine Learning Fundamentals
+              </li>
+              <li style="padding: var(--spacing-xs) 0">
+                ✓ Deep Learning Applications
+              </li>
+              <li style="padding: var(--spacing-xs) 0">✓ Interpretable AI</li>
+              <li style="padding: var(--spacing-xs) 0">
+                ✓ AI Ethics & Fairness
+              </li>
+            </ul>
+          </div>
+
+          <div class="card animate-on-scroll">
+            <h3 class="card-title">🌱 Sustainable Technology</h3>
+            <ul style="list-style: none; padding: 0">
+              <li style="padding: var(--spacing-xs) 0">✓ Green Computing</li>
+              <li style="padding: var(--spacing-xs) 0">
+                ✓ Energy-Efficient Algorithms
+              </li>
+              <li style="padding: var(--spacing-xs) 0">
+                ✓ Climate Tech Solutions
+              </li>
+              <li style="padding: var(--spacing-xs) 0">
+                ✓ Sustainable Infrastructure
+              </li>
+            </ul>
+          </div>
+
+          <div class="card animate-on-scroll">
+            <h3 class="card-title">🔐 Privacy & Security</h3>
+            <ul style="list-style: none; padding: 0">
+              <li style="padding: var(--spacing-xs) 0">
+                ✓ Privacy-Preserving ML
+              </li>
+              <li style="padding: var(--spacing-xs) 0">✓ Secure Computation</li>
+              <li style="padding: var(--spacing-xs) 0">✓ Data Protection</li>
+              <li style="padding: var(--spacing-xs) 0">
+                ✓ Cryptographic Methods
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top: var(--spacing-2xl)">
+          <p
+            style="font-size: var(--text-lg); margin-bottom: var(--spacing-md)"
+          >
+            Interested in having me speak at your event?
+          </p>
+          <a href="about.html" class="btn btn-primary">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p class="footer-text">
+            © Nnenna B. Amuji 2025. All rights reserved.
+          </p>
+          <p class="footer-text">
+            Built with passion and modern web technologies
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      // Tab Functionality
+      const tabButtons = document.querySelectorAll(".tab-btn");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          // Remove active class from all buttons and contents
+          tabButtons.forEach((btn) => btn.classList.remove("active"));
+          tabContents.forEach((content) => content.classList.remove("active"));
+
+          // Add active class to clicked button
+          this.classList.add("active");
+
+          // Show corresponding content
+          const tabId = this.getAttribute("data-tab");
+          document.getElementById(tabId).classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>

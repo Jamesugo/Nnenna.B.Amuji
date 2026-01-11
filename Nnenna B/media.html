@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Browse my media gallery featuring photos, videos, and visual content"
+    />
+    <title>Media | Personal Website</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Media Gallery Specific Styles */
+      .media-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-2xl);
+      }
+
+      .media-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--radius-xl);
+        aspect-ratio: 4/3;
+        background: var(--gradient-primary);
+        cursor: pointer;
+        transition: all var(--transition-base);
+      }
+
+      .media-item:hover {
+        transform: scale(1.05);
+        box-shadow: var(--shadow-xl), 0 0 30px rgba(99, 102, 241, 0.3);
+      }
+
+      .media-item img,
+      .media-item video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .media-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        padding: var(--spacing-md);
+        transform: translateY(100%);
+        transition: transform var(--transition-base);
+      }
+
+      .media-item:hover .media-overlay {
+        transform: translateY(0);
+      }
+
+      .media-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: var(--text-6xl);
+        height: 100%;
+      }
+
+      .filter-buttons {
+        display: flex;
+        gap: var(--spacing-sm);
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .filter-btn {
+        padding: var(--spacing-xs) var(--spacing-md);
+        background: transparent;
+        border: 2px solid var(--color-primary);
+        color: var(--color-text-primary);
+        border-radius: var(--radius-full);
+        cursor: pointer;
+        font-weight: 600;
+        transition: all var(--transition-fast);
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--color-primary);
+        transform: translateY(-2px);
+      }
+
+      /* Lightbox Modal */
+      .lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 2000;
+        align-items: center;
+        justify-content: center;
+        padding: var(--spacing-lg);
+      }
+
+      .lightbox.active {
+        display: flex;
+      }
+
+      .lightbox-content {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: var(--radius-lg);
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: var(--spacing-lg);
+        right: var(--spacing-lg);
+        background: var(--color-primary);
+        color: white;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: var(--text-2xl);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+      }
+
+      .lightbox-close:hover {
+        transform: rotate(90deg);
+        background: var(--color-accent-pink);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">Nnenna B. Amuji</a>
+
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="research.html" class="nav-link">Research</a></li>
+          <li><a href="media.html" class="nav-link">Media</a></li>
+          <li><a href="awards.html" class="nav-link">Awards</a></li>
+          <li><a href="talks.html" class="nav-link">Talks</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" style="min-height: 60vh">
+      <div class="hero-content">
+        <h1 class="hero-title">Media & Features</h1>
+        <p class="hero-subtitle">
+          Interviews, podcasts, and articles featuring insights on business and
+          energy
+        </p>
+      </div>
+    </section>
+
+    <!-- MEDIA GALLERY SECTION -->
+    <section class="section">
+      <div class="container">
+        <!-- Filter Buttons -->
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="talks">Keynotes</button>
+          <button class="filter-btn" data-filter="interviews">
+            Interviews
+          </button>
+          <button class="filter-btn" data-filter="podcasts">Podcasts</button>
+          <button class="filter-btn" data-filter="family">Family</button>
+        </div>
+
+        <!-- Media Grid -->
+        <div class="media-gallery">
+          <!-- Item 1 -->
+          <div class="media-item animate-on-scroll" data-category="talks">
+            <div class="media-thumbnail">
+              <div class="play-button">▶</div>
+            </div>
+            <div class="media-content">
+              <span class="media-tag">Keynote</span>
+              <h3 class="media-title">
+                Strategic Finance in the Energy Transition
+              </h3>
+              <p class="media-description">
+                Keynote address at the Global Energy Summit 2024, discussing effective capital allocation strategies.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="media-item animate-on-scroll" data-category="interviews">
+            <div class="media-thumbnail">
+              <div class="play-button">▶</div>
+            </div>
+            <div class="media-content">
+              <span class="media-tag">Interview</span>
+              <h3 class="media-title">Future of Business Administration</h3>
+              <p class="media-description">
+                Discussing the evolving role of business leaders in technocratic organizations on CNBC.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="media-item animate-on-scroll" data-category="podcasts">
+            <div class="media-thumbnail">
+              <!-- No image source, will use background color -->
+            </div>
+            <div class="media-content">
+              <span class="media-tag">Podcast</span>
+              <h3 class="media-title">Energy Economics Weekly</h3>
+              <p class="media-description">
+                Guest appearance discussing market volatility and risk management frameworks.
+              </p>
+              <div class="audio-player">
+                <div class="play-icon">▶</div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 45%"></div>
+                </div>
+                <div class="time">12:30 / 45:00</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="media-item animate-on-scroll" data-category="talks">
+            <div class="media-thumbnail">
+              <div class="play-button">▶</div>
+            </div>
+            <div class="media-content">
+              <span class="media-tag">Panel</span>
+              <h3 class="media-title">Sustainability & Profitability</h3>
+              <p class="media-description">
+                Panel discussion on how to balance environmental goals with financial performance.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="media-item animate-on-scroll" data-category="talks">
+            <div class="media-thumbnail">
+              <div class="play-button">▶</div>
+            </div>
+            <div class="media-content">
+              <span class="media-tag">Lecture</span>
+              <h3 class="media-title">Operational Excellence Masterclass</h3>
+              <p class="media-description">
+                Guest lecture at Top Business School on optimizing supply chain operations.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="media-item animate-on-scroll" data-category="interviews">
+            <div class="media-thumbnail">
+              <div class="play-button">▶</div>
+            </div>
+            <div class="media-content">
+              <span class="media-tag">Article Feature</span>
+              <h3 class="media-title">Leading Through Change</h3>
+              <p class="media-description">
+                Featured interview in Business Insider about organizational change management.
+              </p>
+            </div>
+          </div>
+        </div>
+
+          <!-- Media Item 13 (Family) -->
+          <div class="media-item animate-on-scroll" data-category="family">
+            <div
+              class="media-placeholder"
+              style="
+                background: linear-gradient(135deg, #f97316 0%, #ec4899 100%);
+                color: white;
+                display: flex;
+              "
+            >
+              👨‍👩‍👧‍👦
+            </div>
+            <div class="media-overlay">
+              <h4>Family Vacation</h4>
+              <p
+                style="
+                  font-size: var(--text-sm);
+                  color: var(--color-text-muted);
+                "
+              >
+                Summer 2024
+              </p>
+            </div>
+          </div>
+
+          <!-- Media Item 14 (Family) -->
+          <div class="media-item animate-on-scroll" data-category="family">
+            <div
+              class="media-placeholder"
+              style="
+                background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+                color: white;
+                display: flex;
+              "
+            >
+              🏔️
+            </div>
+            <div class="media-overlay">
+              <h4>Hiking Trip</h4>
+              <p
+                style="
+                  font-size: var(--text-sm);
+                  color: var(--color-text-muted);
+                "
+              >
+                Mountain Adventure
+              </p>
+            </div>
+          </div>
+
+          <!-- Media Item 15 (Family) -->
+          <div class="media-item animate-on-scroll" data-category="family">
+            <div
+              class="media-placeholder"
+              style="
+                background: linear-gradient(135deg, #10b981 0%, #8b5cf6 100%);
+                color: white;
+                display: flex;
+              "
+            >
+              🎂
+            </div>
+            <div class="media-overlay">
+              <h4>Birthday Celebration</h4>
+              <p
+                style="
+                  font-size: var(--text-sm);
+                  color: var(--color-text-muted);
+                "
+              >
+                Family Gathering
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO SECTION -->
+    <section class="section" style="background: var(--color-bg-medium)">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Videos</h2>
+          <p class="section-subtitle">Recorded talks and presentations</p>
+        </div>
+
+        <div class="grid grid-2">
+          <!-- Video 1 -->
+          <div class="card animate-on-scroll">
+            <div
+              style="
+                aspect-ratio: 16/9;
+                background: var(--gradient-primary);
+                border-radius: var(--radius-lg);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: var(--text-6xl);
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              ▶️
+            </div>
+            <h3 class="card-title">TEDx Talk: The Future of AI</h3>
+            <p class="card-subtitle">TEDxUniversity • 2024 • 18 min</p>
+            <p>
+              Exploring the ethical implications and future directions of
+              artificial intelligence in society.
+            </p>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="card animate-on-scroll">
+            <div
+              style="
+                aspect-ratio: 16/9;
+                background: var(--gradient-accent);
+                border-radius: var(--radius-lg);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: var(--text-6xl);
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              ▶️
+            </div>
+            <h3 class="card-title">Keynote: Sustainable Computing</h3>
+            <p class="card-subtitle">GreenTech Summit • 2023 • 45 min</p>
+            <p>
+              Presenting research on energy-efficient algorithms and their
+              impact on reducing carbon emissions.
+            </p>
+          </div>
+
+          <!-- Video 3 -->
+          <div class="card animate-on-scroll">
+            <div
+              style="
+                aspect-ratio: 16/9;
+                background: var(--gradient-warm);
+                border-radius: var(--radius-lg);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: var(--text-6xl);
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              ▶️
+            </div>
+            <h3 class="card-title">Research Overview</h3>
+            <p class="card-subtitle">Lab Tour • 2024 • 12 min</p>
+            <p>
+              A comprehensive overview of our research lab and ongoing projects
+              in machine learning.
+            </p>
+          </div>
+
+          <!-- Video 4 -->
+          <div class="card animate-on-scroll">
+            <div
+              style="
+                aspect-ratio: 16/9;
+                background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+                border-radius: var(--radius-lg);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: var(--text-6xl);
+                margin-bottom: var(--spacing-md);
+              "
+            >
+              ▶️
+            </div>
+            <h3 class="card-title">Panel: Privacy in the Digital Age</h3>
+            <p class="card-subtitle">Privacy Conference • 2023 • 60 min</p>
+            <p>
+              Discussing privacy-preserving technologies and their importance in
+              modern computing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" onclick="closeLightbox()">×</button>
+      <img
+        class="lightbox-content"
+        id="lightbox-img"
+        src=""
+        alt="Lightbox image"
+      />
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p class="footer-text">© Nnenna B. Amuji 2025. All rights reserved.</p>
+          <p class="footer-text">
+            Built with passion and modern web technologies
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      // Media Filter Functionality
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const mediaItems = document.querySelectorAll(".media-item");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          // Remove active class from all buttons
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          // Add active class to clicked button
+          this.classList.add("active");
+
+          const filter = this.getAttribute("data-filter");
+
+          mediaItems.forEach((item) => {
+            if (
+              filter === "all" ||
+              item.getAttribute("data-category") === filter
+            ) {
+              item.style.display = "block";
+              setTimeout(() => {
+                item.style.opacity = "1";
+                item.style.transform = "scale(1)";
+              }, 10);
+            } else {
+              item.style.opacity = "0";
+              item.style.transform = "scale(0.8)";
+              setTimeout(() => {
+                item.style.display = "none";
+              }, 300);
+            }
+          });
+        });
+      });
+
+      // Lightbox Functionality
+      const mediaItemsClickable = document.querySelectorAll(".media-item");
+      const lightbox = document.getElementById("lightbox");
+
+      mediaItemsClickable.forEach((item) => {
+        item.addEventListener("click", function () {
+          lightbox.classList.add("active");
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove("active");
+      }
+
+      // Close lightbox on background click
+      lightbox.addEventListener("click", function (e) {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      // Close lightbox on Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && lightbox.classList.contains("active")) {
+          closeLightbox();
+        }
+      });
+    </script>
+  </body>
+</html>
